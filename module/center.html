@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>Hello MUI</title>
+		<title>微定</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -134,6 +134,10 @@
 				width: 40px;
 				height: 40px;
 			}
+            #cell-img{
+                width: 20px;
+                height: 20px;
+            }
 			#head-img1 {
 				position: absolute;
 				bottom: 10px;
@@ -196,43 +200,61 @@
 			<div class="mui-page-content">
 				<div class="mui-scroll-wrapper">
 					<div class="mui-scroll">
-						<ul class="mui-table-view mui-table-view-chevron">
-							<li class="mui-table-view-cell mui-media">
-								<a class="mui-navigate-right" href="#account">
-									<img class="mui-media-object mui-pull-left head-img" id="head-img" src="">
-									<div class="mui-media-body">
-										Hello MUI
-										<p class='mui-ellipsis'>账号:hellomui</p>
-									</div>
-								</a>
-							</li>
-						</ul>
-						<ul class="mui-table-view mui-table-view-chevron">
-							<li class="mui-table-view-cell">
-								<a href="#account" class="mui-navigate-right">账号与安全</a>
-							</li>
-						</ul>
+
+                        <ul class="mui-table-view mui-grid-view">
+                            <li class="mui-table-view-cell mui-media mui-col-xs-12">
+                                <a href="#">
+                                    <img class="mui-meadia-object" id="head-img" src="../imgs/logo.png">
+                                    <div class="mui-media-body">我的名字</div>
+                                </a>
+                            </li>
+                        </ul>
+
+                        
 						<ul class="mui-table-view mui-table-view-chevron">
 							<li class="mui-table-view-cell">
-								<a href="#notifications" class="mui-navigate-right">新消息通知</a>
-							</li>
-							<li class="mui-table-view-cell">
-								<a href="#privacy" class="mui-navigate-right">隐私</a>
-							</li>
-							<li class="mui-table-view-cell">
-								<a href="#general" class="mui-navigate-right">通用</a>
+								<a href="#about" class="mui-navigate-right">
+                                    <img class="mui-media-object mui-pull-left" id="cell-img" src="../imgs/guanli.png">
+                                    商品管理
+                                </a>
 							</li>
 						</ul>
+
+                        <ul class="mui-table-view mui-table-view-chevron">
+							<li class="mui-table-view-cell">
+								<a href="#about" class="mui-navigate-right">
+                                    <img class="mui-media-object mui-pull-left" id="cell-img" src="../imgs/me.png">
+                                    我的订单
+                                </a>
+							</li>
+						</ul>
+
+
 						<ul class="mui-table-view mui-table-view-chevron">
 							<li class="mui-table-view-cell">
-								<a href="#about" class="mui-navigate-right">关于MUI <i class="mui-pull-right update">V3.2.0</i></a>
+								<a href="#general" class="mui-navigate-right">
+                                    <img class="mui-media-object mui-pull-left" id="cell-img" src="../imgs/钱包.png">
+                                    财富
+                                </a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="#general" class="mui-navigate-right">
+                                    <img class="mui-media-object mui-pull-left" id="cell-img" src="../imgs/out.png">
+                                    提现
+                                </a>
 							</li>
 						</ul>
-						<ul class="mui-table-view">
-							<li class="mui-table-view-cell" style="text-align: center;">
-								<a>退出登录</a>
+
+						<ul class="mui-table-view mui-table-view-chevron">
+							<li class="mui-table-view-cell">
+                                
+								<a href="#about" class="mui-navigate-right">
+                                    <img class="mui-media-object mui-pull-left" id="cell-img" src="../imgs/set.png">
+                                    设置
+                                </a>
 							</li>
 						</ul>
+			
 					</div>
 				</div>
 			</div>
