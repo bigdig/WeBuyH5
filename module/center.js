@@ -60,6 +60,52 @@ function defaultImg() {
     }
 
 }
+
+function updateUI(){
+
+        let dbkUrl="http://ifc.dressbook.cn";
+    	$.ajax({
+		url: dbkUrl+"/wtUserLogin.jsonp",
+		data:"wx_openid=o3LILj6brjbkgq-A6bUXsJCL-180",
+		type: "GET",
+		async: true,
+		dataType: 'JSONP',
+		success: function(data) {
+            console.log(JSON.stringify(data));
+			if(data.code==1){
+				document.getElementById("user-name").innerText = data.info.user_name;
+                if(data.info.avatar.length)
+                {
+                    document.getElementById("head-img").src = data.info.avatar;
+                }
+                
+
+			}
+		}
+	});
+
+
+    //更新资产信息
+        $.ajax({
+		url: dbkUrl+"/wdUsersWealthGet.jsonp",
+		data:"user_id=1095498",
+		type: "GET",
+		async: true,
+		dataType: 'JSONP',
+		success: function(data) {
+            console.log(JSON.stringify(data));
+			if(data.code==1){
+                document.getElementById("income-expect").innerText = data.info.saleExpect.total;
+                document.getElementById("income-balance").innerText = data.info.saleIncome.total;
+                document.getElementById("income-today").innerText = data.info.saleExpect.total;
+                document.getElementById("income-month").innerText = data.info.saleExpect.total;
+			}
+		}
+	});
+
+}
+
+
 document.getElementById("head-img1").addEventListener('tap', function (e) {
     e.stopPropagation();
 });
