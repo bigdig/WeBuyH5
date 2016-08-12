@@ -34,14 +34,13 @@
             float: right;
             color: red;
         }
-
-        #order-picture{
+        
+        #order-picture {
             width: 100px;
             height: 110px;
             border-radius: 5px;
             margin-right: 20px;
         }
-
     </style>
 </head>
 
@@ -81,8 +80,9 @@
                 <div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-3"></div>
                 <div class="mui-slider-group">
                     <div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
-                        <div id="scroll1" class="mui-scroll-wrapper">
+                        <div id="cards-all" class="mui-scroll-wrapper">
                             <!--card-->
+                            <!--
                             <div class="mui-card">
                                 <div class="mui-card-header mui-card-media">
                                     <div class="mui-media-body">
@@ -97,57 +97,35 @@
                                             <a href="javascript:;">
                                                 <img class="mui-pull-left" id="order-picture" src="../imgs/logo.png">
                                                 <div class="mui-media-body" id="order-desc">
-                                                    <h4 class='mui-ellipsis'  style="line-height:1.5" >休闲紧身短裙</h4>
-                                                    <p class='mui-ellipsis' style="line-height:2" >休闲紧身短裙定制</p>
-                                                    <p class='mui-ellipsis' style="line-height:2" >定制图案、标签、颜色。。。。。。。。。。</p>
+                                                    <h4 class='mui-ellipsis' style="line-height:1.5">休闲紧身短裙</h4>
+                                                    <p class='mui-ellipsis' style="line-height:2">休闲紧身短裙定制</p>
+                                                    <p class='mui-ellipsis' style="line-height:2">定制图案、标签、颜色。。。。。。。。。。</p>
                                                 </div>
                                             </a>
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="mui-card-footer">
-                                    <button type="button" class="mui-btn mui-btn-outlined">
-					取消定单
-				</button>
-
-                                    <button type="button" class="mui-btn mui-btn-outlined mui-btn-danger">
-					&nbsp;&nbsp;付&nbsp;款&nbsp;&nbsp;
-				</button>
+                                    <button type="button" class="mui-btn mui-btn-outlined">取消定单</button>
+                                    <button type="button" class="mui-btn mui-btn-outlined mui-btn-danger">&nbsp;&nbsp;付&nbsp;款&nbsp;&nbsp;</button>
                                 </div>
                             </div>
+                            -->
                         </div>
                     </div>
                     <div id="item2mobile" class="mui-slider-item mui-control-content">
-                        <div id="scroll2" class="mui-scroll-wrapper">
-                            <div class="mui-scroll">
-                                <div class="mui-loading">
-                                    <div class="mui-spinner">
-                                    </div>
-                                </div>
-                            </div>
+                        <div id="cards-topay" class="mui-scroll-wrapper">
                         </div>
 
                     </div>
                     <div id="item3mobile" class="mui-slider-item mui-control-content">
-                        <div id="scroll3" class="mui-scroll-wrapper">
-                            <div class="mui-scroll">
-                                <div class="mui-loading">
-                                    <div class="mui-spinner">
-                                    </div>
-                                </div>
-                            </div>
+                        <div id="cards-toship" class="mui-scroll-wrapper">
                         </div>
 
                     </div>
 
                     <div id="item4mobile" class="mui-slider-item mui-control-content">
-                        <div id="scroll4" class="mui-scroll-wrapper">
-                            <div class="mui-scroll">
-                                <div class="mui-loading">
-                                    <div class="mui-spinner">
-                                    </div>
-                                </div>
-                            </div>
+                        <div id="cards-shipping" class="mui-scroll-wrapper">
                         </div>
 
                     </div>
@@ -169,33 +147,7 @@
                 </li>
             </ul>
         </div>
-
-
-        <!--card-->
-        <div id="item-card" class="mui-control-content">
-            <div class="mui-card">
-                <div class="mui-card-header mui-card-media">
-                    <img src="../images/logo.png" />
-                    <div class="mui-media-body">
-                        小M
-                        <p>发表于 2016-06-30 15:30</p>
-                    </div>
-                    <!--<img class="mui-pull-left" src="../images/logo.png" width="34px" height="34px" />
-                                    <h2>小M</h2>
-                                    <p>发表于 2016-06-30 15:30</p>-->
-                </div>
-                <div class="mui-card-content">
-                    <img src="../images/yuantiao.jpg" alt="" width="100%" />
-                </div>
-                <div class="mui-card-footer">
-                    <a class="mui-card-link">Like</a>
-                    <a class="mui-card-link">Comment</a>
-                    <a class="mui-card-link">Read more</a>
-                </div>
-            </div>
-        </div>
-
-
+        
     </div>
 
 
@@ -223,6 +175,17 @@
 				});
 			})(mui);
 		</script>
+
+     <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src='order.js'></script>
+<script>
+	setTimeout(function () {
+    fetchData();
+    setTimeout(function () {
+        ;
+    }, 300);
+}, 500);
+	</script>
 
 </body>
 
