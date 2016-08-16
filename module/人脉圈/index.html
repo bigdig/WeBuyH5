@@ -1,88 +1,35 @@
 <!DOCTYPE html>
 <html>
 
-  <style>
+<style>
+  .headimage {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+  }
 
-    </style>
+</style>
 
-  <head>
-    <title>Bootstrap Tree View</title>
-    <link href="http://jonmiles.github.io/bootstrap-treeview/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
-    <!-- <link href="./css/bootstrap-treeview.css" rel="stylesheet"> -->
-  </head>
+<head>
+  <title>人脉圈</title>
+  <link href="http://jonmiles.github.io/bootstrap-treeview/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+  <!-- <link href="./css/bootstrap-treeview.css" rel="stylesheet"> -->
+</head>
 
-  <body>
+<body>
 
 
-        <div class="col-sm-12">
-          <h2>Tags as Badges</h2>
-          <div id="treeview6" class=""></div>
-        </div>
+  <div class="col-sm-12">
+    <div id="treeview6" class=""></div>
   </div>
-    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  </div>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 
-  	<script src="./js/bootstrap-treeview.js"></script>
-    <script src="./lifeCircle.js"></script>
-  	<script type="text/javascript">
-
-  		$(function() {
-
-        var defaultData = [
-          {
-            text: '任兴国',
-            icon: "icon-search",
-            href: '#parent1',
-            tags: ['4'],
-            nodes: [
-              {
-                text: '金明',
-                href: '#child1',
-                tags: ['2'],
-                nodes: [
-                  {
-                    text: '王贝',
-                    href: '#grandchild1',
-                    tags: ['0']
-                  },
-                  {
-                    text: 'Grandchild 2',
-                    href: '#grandchild2',
-                    tags: ['0']
-                  }
-                ]
-              },
-              {
-                text: 'Child 2',
-                href: '#child2',
-                tags: ['0']
-              }
-            ]
-          },
-          {
-            text: 'Parent 2',
-            href: '#parent2',
-            tags: ['0']
-          },
-          {
-            text: 'Parent 3',
-            href: '#parent3',
-             tags: ['0']
-          },
-          {
-            text: 'Parent 4',
-            href: '#parent4',
-            tags: ['0']
-          },
-          {
-            text: 'Parent 5',
-            href: '#parent5'  ,
-            tags: ['0']
-          }
-        ];
-
-        loadLifeCircle();
-
-  		});
+  <script src="./js/bootstrap-treeview.js"></script>
+  <script src="./lifeCircle.js"></script>
+  <script type="text/javascript">
+  		loadLifeCircle();
   	</script>
-  </body>
+</body>
+
 </html>

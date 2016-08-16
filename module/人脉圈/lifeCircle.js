@@ -1,4 +1,5 @@
 
+var relation_count;
 
 function walk(nodes, data) {
     if (!nodes) { return; }
@@ -8,23 +9,26 @@ function walk(nodes, data) {
             var obj = {
                 id: id,
                 text: node.user.wxOpenid,
-                tags: [node.friends.length > 0 ? node.friends.length + ' child elements' : '']
+                headimage: node.user.avatar,
+                tags: [node.friends.length > 0 ? node.friends.length : '']
             };
+            relation_count++;
             if (node.friends.length > 0) {
                 obj.nodes = [];
                 walk(node.friends, obj.nodes);
             }
             data.push(obj);
         }
-        else
-        {
+        else {
             //the last children
-                var obj = {
+            var obj = {
                 id: id,
-                text: node.wxOpenid
+                text: node.wxOpenid,
+                headimage: node.avatar
             };
+            relation_count++;
             obj.nodes = [];
-           data.push(obj);
+            data.push(obj);
         }
 
     });
@@ -46,16 +50,30 @@ function loadLifeCircle() {
             console.log(JSON.stringify(data));
             if (data.code == 1) {
 
+                relation_count = 0;
                 var circle = [];
                 walk(data.info.friends, circle);
 
+                var defaultData = [
+                    {
+                        id: "root",
+                        text: "总人脉",
+                        headimage: "",
+                        tags: [relation_count],
+                        nodes: circle
+                    },
+                ];
+
+
                 $('#treeview6').treeview({
-                    color: "#428bca",
-                    expandIcon: "glyphicon glyphicon-stop",
-                    collapseIcon: "glyphicon glyphicon-unchecked",
+                    color: "#4F4F4F",
+                    //expandIcon: "glyphicon glyphicon-stop",
+                    //collapseIcon: "glyphicon glyphicon-unchecked",
                     showTags: true,
-                    data: circle
+                    data: defaultData
                 });
+
+                $('#treeview6').treeview('expandAll', { levels: 3, silent: true });
 
             }
         }

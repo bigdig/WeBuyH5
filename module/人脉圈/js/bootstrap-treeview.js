@@ -592,6 +592,13 @@
 			}
 			else {
 				// otherwise just text
+				if(node.headimage.length)
+				{
+					treeItem
+						.append($(_this.template.headimage).attr('src',node.headimage));
+				}
+
+
 				treeItem
 					.append(node.text);
 			}
@@ -691,6 +698,7 @@
 		item: '<li class="list-group-item"></li>',
 		indent: '<span class="indent"></span>',
 		icon: '<span class="icon"></span>',
+		headimage: '<img class="headimage" style="margin-right: 5px;"></img>',
 		link: '<a href="#" style="color:inherit;"></a>',
 		badge: '<span class="badge"></span>'
 	};
