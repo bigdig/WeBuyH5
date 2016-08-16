@@ -629,14 +629,13 @@
 	<script src='../js/feedback.js'></script>
     <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src='center.js'></script>
-<script>
-	setTimeout(function () {
-    defaultImg();
-    updateUI();
-    setTimeout(function () {
-        initImgPreview();
-    }, 300);
-}, 500);
-	</script>
+
+	<script src="../js/wxutil.js"></script>
+
+	<script type="text/javascript">
+		document.addEventListener("userReadyEvent",function(){
+			updateUI();
+		});
+		</script>
 
 </html>

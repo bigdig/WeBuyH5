@@ -66,7 +66,7 @@ function updateUI(){
         let dbkUrl="http://ifc.dressbook.cn";
     	$.ajax({
 		url: dbkUrl+"/wtUserLogin.jsonp",
-		data:"wx_openid=o3LILj6brjbkgq-A6bUXsJCL-180",
+		data:"wx_openid="+user.wx_openid,
 		type: "GET",
 		async: true,
 		dataType: 'JSONP',
@@ -88,7 +88,7 @@ function updateUI(){
     //更新资产信息
         $.ajax({
 		url: dbkUrl+"/wdUsersWealthGet.jsonp",
-		data:"user_id=1095498",
+		data:"user_id="+user.user_id,
 		type: "GET",
 		async: true,
 		dataType: 'JSONP',

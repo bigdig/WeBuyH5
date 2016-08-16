@@ -39,7 +39,7 @@ function fetchData(){
 
     $.ajax({
         url: dbkUrl + "/wdOrdersGet.jsonp",
-        data: "user_id=1095550",
+        data: "user_id="+user.user_id,
         type: "GET",
         async: true,
         dataType: 'JSONP',

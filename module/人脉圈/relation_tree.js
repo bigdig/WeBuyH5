@@ -42,7 +42,7 @@ function loadLifeCircle() {
 
     $.ajax({
         url: dbkUrl + "/wdUsersFriendShipGet.jsonp",
-        data: "user_id=1095492",
+        data: "user_id="+user.user_id,
         type: "GET",
         async: true,
         dataType: 'JSONP',

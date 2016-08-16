@@ -252,15 +252,13 @@
 
      <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src='order.js'></script>
-<script>
-	setTimeout(function () {
-    fetchData();
-    setTimeout(function () {
-        ;
-    }, 300);
-}, 500);
-	</script>
+    <script src="../js/wxutil.js"
 
+    	<script type="text/javascript">
+		document.addEventListener("userReadyEvent",function(){
+			fetchData();
+		});
+		</script>
 </body>
 
 </html>
