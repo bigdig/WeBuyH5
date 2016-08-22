@@ -96,8 +96,9 @@ function updateUI(){
                 let cells = ["cashSubtract","moneyExt","costSubtract","saleExpect","saleIncome","myWealth"];
                 var cell;
                 while (cell = cells.shift()) {
-                    "use strict";
-                    let index = cell;
+                    function index(){
+                        return cell;
+                    }
                     //cell_dom.setAttribute("href","#detail");
                     document.getElementById("cell-" + cell).addEventListener('tap', function () {
                         var d = data.info[index];

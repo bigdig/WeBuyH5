@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>我的订单</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!--标准mui.css-->
+    <link rel="stylesheet" href="../../css/mui.min.css">
+    <!--App自定义的css-->
+    <link rel="stylesheet" type="text/css" href="../../css/app.css" />
+
+
+    <script src="../../js/mui.js"></script>
+    <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+			mui.init();
+	</script>
+
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="../../js/wxutil.js"></script>
+
+
+    <style>
+        .mui-card .mui-control-content {
+            padding: 10px;
+        }
+        
+        .mui-control-content {
+            background-color: white;
+            min-height: 515px;
+        }
+        
+        .mui-control-content .mui-loading {
+            margin-top: 50px;
+        }
+        
+        .lable-title {
+            margin-left: -40px;
+        }
+        
+        .lable-state {
+            float: right;
+            color: red;
+        }
+        
+        #order-picture {
+            width: 100px;
+            height: 110px;
+            border-radius: 5px;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="mui-bar mui-bar-nav">
+        <a href="center.html" class="mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">我的订单</h1>
+    </header>
+    <div class="mui-content" ng-app="myApp" ng-controller="myCtl">
+
+
+        <div class="mui-card">
+            <div class="mui-card-header mui-card-media">
+                <div class="mui-media-body">
+
+                    <label class="lable-title">定单号：20131415167</label>
+                    <label class="lable-state">待付款</label>
+                </div>
+            </div>
+            <div class="mui-card-content">
+                <ul class="mui-table-view">
+                    <li class="mui-table-view-cell mui-media">
+                        <a href="javascript:;">
+                            <img class="mui-pull-left" id="order-picture" src="../../imgs/logo.png">
+                            <div class="mui-media-body" id="order-desc">
+                                <h4 class='mui-ellipsis' style="line-height:1.5">休闲紧身短裙</h4>
+                                <p class='mui-ellipsis' style="line-height:2">休闲紧身短裙定制</p>
+                                <p class='mui-ellipsis' style="line-height:2">定制图案、标签、颜色。。。。。。。。。。</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="mui-card-footer">
+                <button type="button" class="mui-btn mui-btn-outlined">取消定单</button>
+                <button type="button" ng-click="clickPayment()" class="mui-btn mui-btn-outlined mui-btn-danger">&nbsp;&nbsp;付&nbsp;款&nbsp;&nbsp;</button>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src='genorder.js'></script>
+    <script src="../../js/wxutil.js"></script>
+    <script src='payment.js'></script>
+    <script type="text/javascript">
+
+			var myApp = angular.module('myApp', []);
+			myApp.controller('myCtl', function($scope, $http) {
+				//由于微信认证过程需要时间，所以将用户信息获得作成一个事件，监听这个事件就能保证获取用户信息
+				document.addEventListener("userReadyEvent", function() {
+					$scope.user = user;
+					//生成订单（测试）
+					$http.jsonp('http://ifc.dressbook.cn/wtWdGoodsBuy.jsonp?user_id=' + user.user_id + '&callback=JSON_CALLBACK' + "&address_id=302" + "&store_id=1" +"&goodsSet_id=1")
+						.success(function(response) {
+							$scope.order = response.info;
+						});
+				});
+				//付款
+				$scope.clickPayment = function(id) {
+					//payment();
+                    payment().applyBinding();
+				};
+				
+            });
+
+	</script>
+</body>
+
+</html>
