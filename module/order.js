@@ -26,7 +26,7 @@ var oShareStateList =  document.getElementById('item1'),
                         '       </div>',
                         '        <div class="mui-card-footer">',
                         '            <button type="button" class="mui-btn mui-btn-outlined">取消定单</button>',
-                        '            <button type="button" class="mui-btn mui-btn-outlined mui-btn-danger">&nbsp;&nbsp;付&nbsp;款&nbsp;&nbsp;</button>',
+                        '            <button type="button" onClick="clickPayment(\'{ROOT}\')" class="mui-btn mui-btn-outlined mui-btn-danger">&nbsp;&nbsp;付&nbsp;款&nbsp;&nbsp;</button>',
                         '        </div>'
             ].join('');
 
@@ -67,12 +67,22 @@ function render( data ){
     _dom.setAttribute( 'class', "mui-card" );
     _dom.innerHTML = tmp.replace( /(\{.+?\})/g, function($1){
         var layer = $1.slice( 1, $1.length-1 ).split('.');
+
         if(layer.length==1)
+        {
+            if(layer[0] == "ROOT")
+            {
+                return data;
+            }
             return data[ layer[0] ];
+        }
+            
         if(layer.length==2)
             return data[ layer[0] ][ layer[1] ];
         
     } );
+
+
     document.getElementById('cards-all').appendChild( _dom );
     //
     if( data.order.stateShow == "待付款")

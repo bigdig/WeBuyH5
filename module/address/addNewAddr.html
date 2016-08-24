@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
 
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="../../js/wxutil.js"></script>
+<script type="text/javascript" src="assets/js/angular/angular-1.5.5.js"></script>
+<script type="text/javascript" src="assets/js/angular/angular-messages.js"></script>
+
 <head>
 	<meta charset="UTF-8">
 	<title>新增收货地址</title>
@@ -213,6 +218,7 @@
 			<p class="ana_addr">地址信息</p>
 			<div class="ana_addrDetail">
 				<ul>
+					<!--
 					<li>
 						<div class="fl">学校\大厦\写字楼:</div>
 						<div class="fr">
@@ -225,15 +231,16 @@
 						ng-messages="addrForm.address.$error" ng-class="'errorMsg'">
 						<span ng-message="required" ng-bind="'必须的'"></span>
 					</li>
+					-->
 					<li>
-						<div class="fl">详细地址:</div>
+						<div class="fl">地址:</div>
 						<div class="fr">
-							<input type="text" class="ana_detailAddr" name="doorplate" placeholder="请填写门牌号"
-							ng-model="address.doorplate" ng-required="true">
+							<input type="text" class="ana_detailAddr" name="address" placeholder="地址"
+							ng-model="address.address" ng-required="true">
 						</div>
 					</li>
-					<li ng-show="addrForm.doorplate.$dirty&&addrForm.doorplate.$invalid"
-						ng-messages="addrForm.doorplate.$error" ng-class="'errorMsg'">
+					<li ng-show="addrForm.address.$dirty&&addrForm.address.$invalid"
+						ng-messages="addrForm.address.$error" ng-class="'errorMsg'">
 						<span ng-message="required" ng-bind="'必须的'"></span>
 					</li>
 				</ul>
@@ -243,8 +250,7 @@
 		</form>
 	</div>
 </body>
-<script type="text/javascript" src="assets/js/angular/angular-1.5.5.js"></script>
-<script type="text/javascript" src="assets/js/angular/angular-messages.js"></script>
+
 <script type="text/javascript">
 	angular.module('newAddrApp', ['ngMessages'])
 			.controller('newAddrContrl' , function ($scope, $http) {
@@ -254,10 +260,10 @@
 				if (editAddrJson == null){  //说明是新增
 					$scope.actionBtnText = '保  存';
 					//从session读取出用户信息(json字符串格式), 并转换成js对象
-					var user = JSON.parse(sessionStorage.getItem('_user_'));
+					// var user = JSON.parse(sessionStorage.getItem('_user_'));
 					//封装一个address对象, 保存在$scope
 					$scope.address = {
-						userId : user._id  //查看API, 地址的数据中含有userId
+						userId : user.user_id  //查看API, 地址的数据中含有userId
 					};
 
 				}else{  //说明是修改
@@ -277,16 +283,16 @@
 
 
 				//从session中取出_search_address_
-				var searchAddressJson = sessionStorage.getItem('_search_address_');
-				if(searchAddressJson != null){  //说明用户点击过获取地址
-					var searchaddr = JSON.parse(searchAddressJson);
-					//保存到$scope
-					$scope.address.address = searchaddr.name;
-					$scope.address.lng = searchaddr.lng;
-					$scope.address.lat = searchaddr.lat;
-					$scope.address.cityId = searchaddr.cityId;
+				// var searchAddressJson = sessionStorage.getItem('_search_address_');
+				// if(searchAddressJson != null){  //说明用户点击过获取地址
+				// 	var searchaddr = JSON.parse(searchAddressJson);
+				// 	//保存到$scope
+				// 	$scope.address.address = searchaddr.name;
+				// 	$scope.address.lng = searchaddr.lng;
+				// 	$scope.address.lat = searchaddr.lat;
+				// 	$scope.address.cityId = searchaddr.cityId;
 
-				}
+				// }
 
 				//添加一个方法设置性别
 				$scope.setSex = function (value) {
@@ -294,22 +300,50 @@
 				};
 
 				$scope.submit = function () {
+
+					console.log(JSON.stringify($scope.address));
 					//删除session中的地址
 					sessionStorage.removeItem('_session_address_');
 					sessionStorage.removeItem('_search_address_');
 
 
 					if (editAddrJson == null){  //新增
-						$http({
-							method: 'GET',
-							url: '/insertAddr',
-							params: {address: $scope.address}
-						}).success(function (address) {
-							alert('添加成功!');
-							window.location = 'addrManage.html';
-						}).error(function (result) {
-							alert(result);
-						});
+
+						$http.jsonp('http://ifc.dressbook.cn/wtAddressSet.jsonp?user_id='+user.user_id
+						+"&address="+$scope.address.address
+						+"&mobile=" + $scope.address.phone
+						+"&consignee=" + $scope.address.contactor
+						+"&province=" + "北京"
+						+"&city=" +"北京"
+						+"&district="+"西城"
+						+"&state="+"1"
+						+'&callback=JSON_CALLBACK'
+						)
+							.success(function (result) {
+								if(result.code==1){
+									 alert('添加成功!'); 
+									 window.location = 'addrManage.html';
+								}
+								else
+								{
+									alert(JSON.stringify(result));
+								}
+
+							})
+							.error(function (result) {
+								alert(result);
+							});
+
+						// $http({
+						// 	method: 'GET',
+						// 	url: '/insertAddr',
+						// 	params: {address: $scope.address}
+						// }).success(function (address) {
+						// 	alert('添加成功!');
+						// 	window.location = 'addrManage.html';
+						// }).error(function (result) {
+						// 	alert(result);
+						// });
 
 					}else{
 						$http({
