@@ -9,15 +9,14 @@ var payment = function () {
             //this.applyBinding();
         },
 
-        applyBinding: function applyBinding(user_id,address_id,store_id,goodsSet_id) {
+        applyBinding: function applyBinding(user_id,address_id,store_id,goodsSet_id,buy_num) {
             var self = this;
 
-            let dbkUrl = "http://ifc.dressbook.cn";
-
+            var dbkUrl = "http://ifc.dressbook.cn";
             $.ajax({
                 url: dbkUrl + "/wtWdGoodsBuy.jsonp",
                 //data: "user_id=" + user.user_id + "&address_id=302" + "&store_id=1" + "&goodsSet_id=1",
-                data: "user_id=" + user_id + "&address_id=" + address_id + "&store_id=1" + store_id+ "&goodsSet_id="+goodsSet_id,
+                data: "user_id=" + user_id + "&address_id=" + address_id + "&store_id=" + store_id+ "&goodsSet_id="+goodsSet_id +"&buy_num="+buy_num,
                 type: "GET",
                 async: true,
                 dataType: 'JSONP',
@@ -25,6 +24,8 @@ var payment = function () {
                     console.log(JSON.stringify(data));
                     if (data.code == 1) {
                         self.prepay_id = data.info.wxResult.prepay_id;
+                        self.order_id = data.info.order.id; //返回定单号
+                        self.priceInfo = data.info.priceInfo;
                         if (self.prepay_id) {
                             self.invokeWeixinJSBridge();
                         }
@@ -50,7 +51,7 @@ var payment = function () {
                 str += key + "=" + value + "&";
             }
 
-            str += "key=whiteandblackdogandcatwithrabbit";
+            str += "key=03e3d812cbd6e2f2f0e890d3be5aa44e";
             var sign = $.md5(str).toUpperCase();
             params.paySign = sign;
         },
@@ -74,7 +75,21 @@ var payment = function () {
                 function (res) {
                     $('.test').text(res);
                     if (res.err_msg == "get_brand_wcpay_request：ok") {
-
+                        //通知支付成功
+                        var dbkUrl = "http://ifc.dressbook.cn";
+                        $.ajax({
+                            url: dbkUrl + "/wtWdGoodsPay.jsonp",
+                            data: "order_id=" + self.order_id + "&price_net=" + self.priceInfo.price_net + "&money_available=" + self.priceInfo.money_available + "&pay_mode="+self.priceInfo.pay_mode,
+                            type: "GET",
+                            async: true,
+                            dataType: 'JSONP',
+                            success: function (data) {
+                                console.log(JSON.stringify(data));
+                                if (data.code == 1) {
+                                    alert(data.info.recode.redesc);
+                                }
+                            }
+                        });
                     } // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。
                 }
             );
