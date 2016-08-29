@@ -114,7 +114,9 @@ $(function () {
                     //$("#typeProductP").text(typeProduct);
                     html += "</div>";
                     $("#productFormatUl").html(html);
-                    $("#detailFormatJson").val($.objToJSONString(list));
+                    // alert($.objToJSONString(list));
+                    //$("#detailFormatJson").val($.objToJSONString(list));
+                    $("#detailFormatJson").val(JSON.stringify(list));
                     //selectFormat();
                 }
             },
@@ -145,6 +147,7 @@ function selectFormat(obj) {
     });
     $("#productDetail").html("已选:" + totalFormat);
     $("#h_productDetail").val("已选:" + totalFormat);
+    // alert($("#detailFormatJson").val());
     var objData = $.parseJSON($("#detailFormatJson").val());
     if (objData[pf_id]) {
         var data = objData[pf_id];

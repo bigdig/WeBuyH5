@@ -1,0 +1,137 @@
+/************************commom style**************************/
+.ui_ml90{margin-left:90px}
+.ui_mt10{margin-top:10px}
+.ui_mt20{margin-top:20px}
+.ui_mt26{margin-top:26px}
+.ui_mt30{margin-top:30px}
+.ui_mr12{margin-right:12px}
+.ui_mtb0lr10{margin:0 10px}
+/*****申请退款begin**********************************************************/
+.ui_mt30{margin-top:30px}
+.ui_mt28{margin-left:28px}
+.apply_service_select{width:60%;height:24px}
+.apply_service{height:48px;line-height:48px;padding: 4px 8px}
+.btn_deposit{position:relative;height:32px;font-size:12px}
+.btn_deposit input{border:none;height:32px;width:70%;padding-left: 6px;}
+.btn_deposit textarea{width:70%;border:none;padding: 0px 2px 0 6px;}
+.serviceIn{margin-left:10px}
+.serviceIn font{margin-left:4px}
+.apply_info{width:65%;background:#ffffff;height:32px;line-height:32px;display: inline-block;}
+.service_select{width:70%;height:32px;border:none;background:#FFFFFF}
+.servicePosi{float:left;margin-top:-14px;margin-right:4px;}
+.add_moude {background-color: #fff;height: 5em;margin-bottom: 20px;padding: 0.5em 1.5em;margin-top: 10px;}
+.add_moude_boeder {width: 69px;height: 69px;border: 1px dashed #eeeeee;line-height: 4.9em;text-align: center;float: left;position: relative;}
+.add_moude_boeder font {color: #eeeeee;font-size: 70px;display: inline-block;}
+.add_moude_img{float:left}
+.upload_logo {height: 60px;margin-left: 70px;line-height: 60px;margin-top: 3px;border-top-left-radius: 0px;border-bottom-left-radius: 0px;font-size: 12px;}
+.logo_img{width:70px;height:70px;display: inline-block;padding: 0 4px;position: relative;}
+.c_delete {width: 30px;position: absolute;right: -10px;top: -4px;display: block;height: 20px;background: url(/vresource/common/images/close.png) no-repeat;z-index: 999;background-size: 20px;}
+.add_moude_boeder input{width:70px;height:70px;float:left;opacity:0;position: absolute;top:0;right:0;}
+.iconColor{color:#ff0000}
+.apply_service .selectShow{position: absolute;top: 8px;right: 8px;}
+/*****申请退款end**********************************************************/
+
+
+/*****退款详情begin*************************************************************/
+.ui_pb10{padding-bottom:10px}
+.applyRefundDetails_time{font-size:12px;text-align:center;padding:10px 10px;color:#999999;}
+.applyRefundDetails_time span{background:#ffffff;padding:0 10px;border-radius: 10px;}
+.applyRefundDetails_info{background:#ffffff;border-radius:10px;margin: 0 20px;padding: 0 10px;position: relative;}
+.applyRefundDetailsBottom{border-bottom:1px solid black;font-size: 16px;padding: 8px 0;}
+.applyRefundDetailsP{line-height:1.6em;}
+.applyRefundDetailsDiv{color:gray;}
+.applyRefundDetailsTri-right {width: 0;height: 0;border-top: 10px solid transparent;border-left: 15px solid #ffffff;border-bottom: 10px solid transparent;position: absolute;top: 12px;right: -15px;}
+.applyRefundDetailsTri-left {width: 0;height: 0;border-top: 10px solid transparent;border-right: 15px solid #ffffff;border-bottom: 10px solid transparent;position: absolute;top: 12px;left: -15px;}
+   		/***处理中的状态********/
+.aRD_Processing{background:#f99756;color:#fefefe}
+.aRD_Processing .applyRefundDetailsTri-righting {width: 0;height: 0;border-top: 10px solid transparent;border-left: 15px solid #f99756;border-bottom: 10px solid transparent;position: absolute;top: 12px;right: -15px;}
+.aRD_Processing .applyRefundDetailsTri-lefting {width: 0;height: 0;border-top: 10px solid transparent;border-right: 15px solid #f99756;border-bottom: 10px solid transparent;position: absolute;top: 12px;left: -15px;}
+.aRD_Processing .applyRefundDetailsBottoming{border-bottom:1px solid #fefefe;}
+.aRD_Processing .applyRefundDetails-coloring{color:#fefefe}
+		/************图片预览**************/
+.showImgPosi{text-align:center;vertical-align: middle;margin-top: 10px;background-color:#fff;margin: -190px auto;position: relative;top: 50%;border-radius: 5px;width:250px;height: 300px;}
+.box .showImgPosi .code_img_pic{width: 115px;height: 115px;}
+.box .showImgPosi .logo_img{width: 40px;position: absolute;left: 16px;top: 25px;}
+.box .showImgPosi p{font-size:14px;}
+.box .showImgPosi .code_tip{padding-bottom: 4px;}
+.box .showImgPosi .code_name{height: 40px;font-size: 16px;margin-left:60px;text-align: left;padding:32px 10px 4px 14px;-webkit-line-clamp: 2;-webkit-box-orient: vertical;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;}
+.b-canby{ display: block; position:absolute;right:0;top:20px;width: 50px;height: 50px;}
+.b-canby i{ display: block; width: 36px;min-height:4px;height:3px; background:#fff; position:absolute;top:0px;}
+.b-canby i:nth-child(1){ -webkit-transform:rotate(45deg);}
+.b-canby i:nth-child(2){ -webkit-transform:rotate(-45deg);}
+/*****退款详情end*************************************************************/
+
+/***************PC退款后台**************************************************/
+.w540{width:540px;}
+.w523{width:523px;}
+.v_right_top{border: inherit;background:inherit}
+.btn_add:before{content: " ";}
+.btn_add{padding: 0 20px 0 20px;}    
+.btn_changeprice{ display:block; padding:0 10px 0 10px; width:auto; display:inline-block; height:28px; text-align:right; line-height:28px; border:1px solid #D8DCE5; border-radius:3px; color:#333; position:relative;}
+.ui_bb{border-bottom: 1px solid #DBE0E4;}
+		/********进度标签*********************/
+.ui_ml80{margin-left:80px}
+.flow-steps{overflow:hidden;margin:10px 10px;}
+.flow-steps li.done{background-color:#ffe6ba;background-position:100% -66px;color:gray;}
+.flow-steps .num3 li{width:30%}
+.flow-steps .num4 li{width:22.21111%}
+.flow-steps li {float: left;background: #e4e4e4 url(http://a.tbcdn.cn/sys/common/img/flow_steps_bg.png) no-repeat 100% 0;font-size: 14px;font-weight: bold;height: 32px;line-height: 32px;text-align: center;color: #404040;padding: 0 15px 0 0;overflow: hidden;background-size: 20px 268px;}
+.flow-steps li:last-child{background-color: #ffe6ba;background-position: 100% 32px;}
+.flow-steps li.currentNow{background-color:#f60;color: #fff;}
+.flow-steps li.last-current {background-color: #f60;color: #fff;background-position: 100% -264px;}
+.flow-steps li.current-prev {background-color: #f60;color: #fff;background-position: 100% -66px;}
+.flow-steps li.current-next {background-color: #f60;color: #fff;background-position: 100% -66px;}
+.flow-steps li.addImgfirst{background-position: 100% -33px;}
+.detailLeftInfo{border: 1px solid #DBE0E4;width:21%;background:#ffffff;}
+.detailRightInfo{border: 1px solid #DBE0E4;width:70%;background:#ffffff;}
+.detailLeftInfo_imgLogo{width:70px;height:70px;padding:10px;}
+.detailLeftInfo_text {height: 44px;line-height: 44px;border-bottom: 1px solid #DBE0E4;text-align: center;font-weight: bold;font-size: 18px;}
+.detailLeftGood{padding:10px 10px}
+.goodinfo{line-height:32px;}
+.goodInfoText p{clear:both;padding:0 10px;line-height: 36px;}
+.goodInfoText p span{width:84px;color:#b0b0b0}    
+.RightInfo_state{margin: 20px 0 6px 20px;overflow:hidden;}
+.RightInfo_state .RightInfo_stateP{line-height:36px}
+.RightInfo_state .RightInfo_first span{font-weight: bold;font-size: 18px;}
+.numPrivcecolor{color:#fe6900}
+.agreeRefund{border: 1px solid #eeeeee;border-radius: 5px;background: #eeeeee;height: 32px;line-height:30px;;margin: 0 2%;color: #b0b0b0;}
+.agreeRefundState{background:#fa6700;color:#ffffff;}
+.RightInfo_state_Textarea{margin-left:80px;width: 74%;margin-top: -32px;}
+.upConfirmBtn{border-radius: inherit;margin:30px 68px 20px 0}
+.detailLeftInfo_imgLook{margin-left:100px;padding:5px 0 5px 0}
+.detailLeftInfo_imgLook img{width:70px;padding:2px 2px}
+.RightInfo_time {float: right;margin-right: 66px;}
+.RightInfo_stateing{display:none}
+.refundSelect{border:1px solid gray;margin-left:80px;width:74%}
+.isImgThreeSpan{display:inline-block;width:90%;float:left;}
+.rightDetileUpImg{margin-bottom:10px}
+.rightDetileUpImg .btn_upload{background:#ffffff;font-size:22px;width:30px;height:30px;padding:inherit;float:left}
+.rightDetileUpImg .remin_error{position:inherit;float:left;margin-left:10px;margin-top:5px;}
+.order_state .orderStatus_img{width:36px;display: inline-block;position: absolute;right: 20px;top: 20px;}
+.RefundDetailInfo .ui_mtb0lr10{margin:0 10px}
+.RefundDetailInfo .ui_bb{border-bottom: 1px solid #DBE0E4;}
+/***************商品详情*************************/
+.product_goods_detailinfo .app-header{height:50px;line-height:50px;border-bottom: initial;}
+.product_goods_detailinfo .app-header h2{background:#fd8525;color:#fff}
+.product_goods_detailinfo .pr-carts{right:20px}
+.product_goods_detailinfo .pr_carts{top:70px}
+.product_goods_detailinfo .pr_two_code{right:8px;background:none}
+.product_goods_detailinfo .pr_two_code img{margin:1px 0px 0px 7px;}
+.product_goods_detailinfo .gointo{}
+.product_goods_detailinfo .gointo .gointo_store{width: 96px;margin-right: 0px;float: right;}
+.weixinbgcolor{color:#23a6fa}
+.product_goods_detailinfo .prod-info h3{font-size:14px}
+.product_goods_detailinfo .prod-info .store-txt p{font-size:12px}
+.product_goods_detailinfo .prod-info .c-hgrade{padding: 0px 10px;height: 20px;border-radius: 50%;}
+
+/***********商品评价********************************/
+.store_pa .add_moude{padding: 0.5em 0;margin-bottom: 0px;}
+
+
+/***********投诉**************************************/
+.complainsAlert{z-index: 9999;}
+.complainsAlert .alert_pop_up{margin:-180px 40px;}
+.complainsAlert .alert_pop_up .com_reason , .com_contect{margin-left:20px;height: 32px;line-height: 32px;}
+.complainsAlert .alert_pop_up .com_infotxt{margin:16px 0 0 20px}
+.complainsAlert .alert_pop_up .w280 .inputText{border:1px solid #eeeeee;width:60%;height:32px}
+.complainsAlert .alert_pop_up .com_textDetail{float:left;margin: 16px 0 0 10px;width:60%;border:1px solid #eeeeee;}

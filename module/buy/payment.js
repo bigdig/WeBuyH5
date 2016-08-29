@@ -9,14 +9,14 @@ var payment = function () {
             //this.applyBinding();
         },
 
-        applyBinding: function applyBinding(user_id,address_id,store_id,goodsSet_id,buy_num) {
+        applyBinding: function applyBinding(user_id, address_id, store_id, goodsSet_id, buy_num) {
             var self = this;
 
             var dbkUrl = "http://ifc.dressbook.cn";
             $.ajax({
                 url: dbkUrl + "/wtWdGoodsBuy.jsonp",
                 //data: "user_id=" + user.user_id + "&address_id=302" + "&store_id=1" + "&goodsSet_id=1",
-                data: "user_id=" + user_id + "&address_id=" + address_id + "&store_id=" + store_id+ "&goodsSet_id="+goodsSet_id +"&buy_num="+buy_num,
+                data: "user_id=" + user_id + "&address_id=" + address_id + "&store_id=" + store_id + "&goodsSet_id=" + goodsSet_id + "&buy_num=" + buy_num,
                 type: "GET",
                 async: true,
                 dataType: 'JSONP',
@@ -74,19 +74,21 @@ var payment = function () {
                 'getBrandWCPayRequest', requestParams,
                 function (res) {
                     $('.test').text(res);
-                    if (res.err_msg == "get_brand_wcpay_request：ok") {
+                    // alert(res.err_msg);
+                    if (res.err_msg == "get_brand_wcpay_request:ok") {
                         //通知支付成功
                         var dbkUrl = "http://ifc.dressbook.cn";
                         $.ajax({
                             url: dbkUrl + "/wtWdGoodsPay.jsonp",
-                            data: "order_id=" + self.order_id + "&price_net=" + self.priceInfo.price_net + "&money_available=" + self.priceInfo.money_available + "&pay_mode="+self.priceInfo.pay_mode,
+                            data: "order_id=" + self.order_id + "&price_net=" + self.priceInfo.price_net + "&money_available=" + self.priceInfo.money_available + "&pay_mode=" + self.priceInfo.pay_mode,
                             type: "GET",
                             async: true,
                             dataType: 'JSONP',
                             success: function (data) {
                                 console.log(JSON.stringify(data));
                                 if (data.code == 1) {
-                                    alert(data.info.recode.redesc);
+                                    alert(data.info.redesc);
+                                    window.history.back();
                                 }
                             }
                         });
@@ -96,6 +98,28 @@ var payment = function () {
         },
 
         invokeWeixinJSBridge: function invokeWeixinJSBridge() {
+            var self = this;
+            //本地测试或者帐户钱多，直接支付
+            if (window.location.protocol == "file:" || self.priceInfo.price_net<self.priceInfo.money_available) {
+                //local test
+                //通知支付成功
+                var dbkUrl = "http://ifc.dressbook.cn";
+                $.ajax({
+                    url: dbkUrl + "/wtWdGoodsPay.jsonp",
+                    data: "order_id=" + self.order_id + "&price_net=" + self.priceInfo.price_net + "&money_available=" + self.priceInfo.money_available + "&pay_mode=" + self.priceInfo.pay_mode,
+                    type: "GET",
+                    async: true,
+                    dataType: 'JSONP',
+                    success: function (data) {
+                        console.log(JSON.stringify(data));
+                        if (data.code == 1) {
+                            alert(data.info.redesc);
+                        }
+                    }
+                });
+            }
+
+
             if (typeof WeixinJSBridge == "undefined") {
                 $('.test').text('WeixinJSBridge not defined!');
                 if (document.addEventListener) {
